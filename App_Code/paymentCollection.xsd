@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="paymentCollection" targetNamespace="http://tempuri.org/paymentCollection.xsd" xmlns:mstns="http://tempuri.org/paymentCollection.xsd" xmlns="http://tempuri.org/paymentCollection.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="kmcConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="kmcConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.kmcConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="paymentCollection" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="paymentCollection" msprop:Generator_UserDSName="paymentCollection">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="posting_voucher" msprop:Generator_TableClassName="posting_voucherDataTable" msprop:Generator_TableVarName="tableposting_voucher" msprop:Generator_TablePropName="posting_voucher" msprop:Generator_RowDeletingName="posting_voucherRowDeleting" msprop:Generator_RowChangingName="posting_voucherRowChanging" msprop:Generator_RowEvHandlerName="posting_voucherRowChangeEventHandler" msprop:Generator_RowDeletedName="posting_voucherRowDeleted" msprop:Generator_UserTableName="posting_voucher" msprop:Generator_RowChangedName="posting_voucherRowChanged" msprop:Generator_RowEvArgName="posting_voucherRowChangeEvent" msprop:Generator_RowClassName="posting_voucherRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Consumer_no" msprop:Generator_ColumnVarNameInTable="columnConsumer_no" msprop:Generator_ColumnPropNameInRow="Consumer_no" msprop:Generator_ColumnPropNameInTable="Consumer_noColumn" msprop:Generator_UserColumnName="Consumer_no" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Billing_Period" msprop:Generator_ColumnVarNameInTable="columnBilling_Period" msprop:Generator_ColumnPropNameInRow="Billing_Period" msprop:Generator_ColumnPropNameInTable="Billing_PeriodColumn" msprop:Generator_UserColumnName="Billing_Period" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="branch_code" msprop:Generator_ColumnVarNameInTable="columnbranch_code" msprop:Generator_ColumnPropNameInRow="branch_code" msprop:Generator_ColumnPropNameInTable="branch_codeColumn" msprop:Generator_UserColumnName="branch_code" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_UserColumnName="amount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Payment_Date" msprop:Generator_ColumnVarNameInTable="columnPayment_Date" msprop:Generator_ColumnPropNameInRow="Payment_Date" msprop:Generator_ColumnPropNameInTable="Payment_DateColumn" msprop:Generator_UserColumnName="Payment_Date" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
