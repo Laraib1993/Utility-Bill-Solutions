@@ -56,7 +56,7 @@
                   </div>
                   <div class="x_content">
                     <br />
-                                        <form class="form-horizontal form-label-left" runat="server" novalidate>
+                    <form class="form-horizontal form-label-left" runat="server" novalidate>
                         <div class="form-group">
                        <asp:Label ID="lblInwordNo" runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Inword Number" Font-Bold="True"></asp:Label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
@@ -115,7 +115,7 @@
                       </div>
 
                                                  <div class="form-group">
-                       <asp:Label ID="Label2" runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Impact" Font-Bold="True"></asp:Label>
+                       <asp:Label ID="Label2" runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Type" Font-Bold="True"></asp:Label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                          <asp:DropDownList class="form-control" ID="ddlsizetype" runat="server">
                              <asp:ListItem Value="0">Select Size Type</asp:ListItem>

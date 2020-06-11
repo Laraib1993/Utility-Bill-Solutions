@@ -27,9 +27,10 @@ public partial class ModificationDeleteStorey : System.Web.UI.Page
 
         else
         {
-
+            //Response.Redirect("Login.aspx");
             if (!IsPostBack)
             {
+                //Response.Redirect("Login.aspx");
             }
             conn = new SqlConnection();
             conn.ConnectionString = ConfigurationManager.ConnectionStrings["kmcConnectionString"].ConnectionString;
@@ -46,7 +47,7 @@ public partial class ModificationDeleteStorey : System.Web.UI.Page
         p.AdminInsertDeleteStorey_ModificationStatus = "Delete Storey";
         p.AdminInsertDeleteStorey_ModificatioStatusModifyImpact = "Delete Storey";
         p.AdminInsertDeleteStorey_NewStorey = Convert.ToInt32(txtNewStorey.Text);
-        p.AdminInsertDeleteStorey_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text))*2;
+        p.AdminInsertDeleteStorey_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text)*2);
         p.AdminInsertDeleteStorey_NewOutstandingArrears = Convert.ToDecimal(txtNewOutstanding.Text);
         p.AdminInsertDeleteStorey_Createdby = Convert.ToString(Session["UserID"]);
         p.AdminInsertDeleteStorey_CreatedbyModifyImpact = Convert.ToString(Session["UserID"]);
@@ -56,7 +57,7 @@ public partial class ModificationDeleteStorey : System.Web.UI.Page
         difference = Convert.ToDecimal(lbloldouttanding.InnerText) - Convert.ToDecimal(txtNewOutstanding.Text);
         p.AdminInsertDeleteStorey_Difference = Convert.ToDecimal(difference);
         p.AdminInsertDeleteStorey_Impact = ddlimpact.SelectedValue;
-        insert.AdminInsertUpdateDeleteStorey(p);
+        //insert.AdminInsertUpdateDeleteStorey(p);
         btnModify.Visible = false;
         txtConsumerNo.Text = null;
         txtInword.Text = null;
@@ -88,15 +89,15 @@ public partial class ModificationDeleteStorey : System.Web.UI.Page
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "selectInvoice";
                 cmd.Parameters.Add("@consumer_no", SqlDbType.VarChar).Value = txtConsumerNo.Text;
-                sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                        lbloldarea.InnerText = sdr[5].ToString();
-                        lblsqy_sqft.InnerText = sdr[6].ToString();
-                        lblstorey.InnerText = sdr[7].ToString();
-                        lbloldouttanding.InnerText = sdr[17].ToString();
-                }
-                sdr.Dispose();
+                //sdr = cmd.ExecuteReader();
+                //while (sdr.Read())
+                //{
+                //        lbloldarea.InnerText = sdr[5].ToString();
+                //        lblsqy_sqft.InnerText = sdr[6].ToString();
+                //        lblstorey.InnerText = sdr[7].ToString();
+                //        lbloldouttanding.InnerText = sdr[17].ToString();
+                //}
+                //sdr.Dispose();
             }
         }
     }

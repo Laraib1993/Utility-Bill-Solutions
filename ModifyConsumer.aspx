@@ -239,20 +239,20 @@
                           <table class="countries_list">
                             <tbody>
                                 <tr>
-                                <td>Change name as inword # XXXXX Dated XX-XX-XXXX as Director (MUCT) instruction</td>
+                                <td>Change of name, Update as Approved by modifications committee for data of (MUCT) bearing Inword # XXXXX Dated XX-XX-XXXX</td>
                                 <td class="fs15 fw700 text-right">
                                    
                                     </td>
                               </tr>
                                 <tr>
-                                     <td>Change Address as inword # XXXXX Dated XX-XX-XXXX as Director (MUCT) instruction</td>
+                                     <td>Change of Address, Update as Approved by modifications committee for data of (MUCT) bearing Inword # XXXXX Dated XX-XX-XXXX</td>
                                 
                                 <td class="fs15 fw700 text-right">
                                    
                                     </td>
                               </tr>
                                  <tr>
-                                     <td>Change name and Address as inword # XXXXX Dated XX-XX-XXXX as Director (MUCT) instruction</td>
+                                     <td>Change of name and Address, Update as Approved by modifications committee for data of (MUCT) bearing Inword # XXXXX Dated XX-XX-XXXX</td>
                                 
                                 <td class="fs15 fw700 text-right">
                                    

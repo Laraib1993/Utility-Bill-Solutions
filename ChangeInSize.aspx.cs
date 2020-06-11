@@ -32,7 +32,7 @@ public partial class ChangeInSize : System.Web.UI.Page
             }
             conn = new SqlConnection();
             conn.ConnectionString = ConfigurationManager.ConnectionStrings["kmcConnectionString"].ConnectionString;
-
+            //Response.Redirect("Login.aspx");
 
 
         }
@@ -59,7 +59,7 @@ public partial class ChangeInSize : System.Web.UI.Page
         p.AdminInsertChangeInSize_ModificationStatusModifyimpact = "Change of size";
         p.AdminInsertChangeInSize_NewArea = Convert.ToDecimal(txtNewArea.Text);
         p.AdminInsertChangeInSize_AreaForConsumer = Convert.ToDecimal(txtNewArea.Text);
-        p.AdminInsertChangeInSize_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text))*2;
+        p.AdminInsertChangeInSize_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text)*2);
         p.AdminInsertChangeInSize_NewOutstandingArrears = Convert.ToDecimal(txtNewOutstanding.Text);
         p.AdminInsertChangeInSize_Createdby = Convert.ToString(Session["UserID"]);
         p.AdminInsertChangeInSize_CreatedbyModifyImpact = Convert.ToString(Session["UserID"]);

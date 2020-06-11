@@ -58,7 +58,7 @@ public partial class AddScroll : System.Web.UI.Page
             cmd.Parameters.Add("@Bank_Name", SqlDbType.VarChar).Value = "SINDH BANK";
             cmd.Parameters.Add("@createdby", SqlDbType.VarChar).Value = Session["UserID"].ToString();
 
-            cmd.Parameters.Add("@FTP_Provided", SqlDbType.VarChar).Value = "NOT ON FTP";
+            cmd.Parameters.Add("@FTP_Provided", SqlDbType.VarChar).Value = "NOT PROVIDED";
             cmd.Parameters.Add("@Scroll_Provided", SqlDbType.VarChar).Value = "PROVIDED";
 
        

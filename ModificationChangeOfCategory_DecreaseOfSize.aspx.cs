@@ -33,10 +33,10 @@ public partial class ModificationChangeOfCategory_DecreaseOfSize : System.Web.UI
 
         else
         {
-
+            //Response.Redirect("Login.aspx");
             if (!IsPostBack)
             {
-
+                //Response.Redirect("Login.aspx");
                 ddlpropertyType.DataSource = downs.propertytypemodification();
                 ddlpropertyType.DataTextField = "Text";
                 ddlpropertyType.DataValueField = "Value";
@@ -75,7 +75,7 @@ public partial class ModificationChangeOfCategory_DecreaseOfSize : System.Web.UI
         p.AdminInsertChangeCategoryDecreaseSize_NewCategoryForConsumer = ddlpropertyType.SelectedItem.ToString();
         p.AdminInsertChangeCategoryDecreaseSize_NewArea = Convert.ToDecimal(txtNewArea.Text);
         p.AdminInsertChangeCategoryDecreaseSize_AreaForConsumer = Convert.ToDecimal(txtNewArea.Text);
-        p.AdminInsertChangeCategoryDecreaseSize_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text))*2;
+        p.AdminInsertChangeCategoryDecreaseSize_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text)*2);
         p.AdminInsertChangeCategoryDecreaseSize_NewOutstandingArrears = Convert.ToDecimal(txtNewOutstanding.Text);
         p.AdminInsertChangeCategoryDecreaseSize_Createdby = Convert.ToString(Session["UserID"]);
         p.AdminInsertChangeCategoryDecreaseSize_CreatedbyModifyImpact = Convert.ToString(Session["UserID"]);
@@ -94,7 +94,7 @@ public partial class ModificationChangeOfCategory_DecreaseOfSize : System.Web.UI
         p.AdminInsertChangeCategoryDecreaseSize_Impact = ddlimpact.SelectedValue;
         p.AdminInsertChangeSqYd_SqFt = lblsqyard.ToString();
 
-        insert.AdminInsertUpdateChangeCategoryDecreaseSize(p);
+       // insert.AdminInsertUpdateChangeCategoryDecreaseSize(p);
 
         btnModify.Visible = false;
 
@@ -126,16 +126,16 @@ public partial class ModificationChangeOfCategory_DecreaseOfSize : System.Web.UI
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "selectInvoice";
                 cmd.Parameters.Add("@consumer_no", SqlDbType.VarChar).Value = txtConsumerNo.Text;
-                sdr = cmd.ExecuteReader();
-                    while (sdr.Read())
-                    {
-                        lbloldarea.InnerText = sdr[5].ToString();
-                        lblsqy_sqft.InnerText = sdr[6].ToString();
-                        lbloldcategory.InnerText = sdr[4].ToString();
-                        lbloldkmccategory.InnerText = sdr[22].ToString();
-                        lbloldouttanding.InnerText = sdr[17].ToString();
-                    }
-                sdr.Dispose();
+                //sdr = cmd.ExecuteReader();
+                //    while (sdr.Read())
+                //    {
+                //        lbloldarea.InnerText = sdr[5].ToString();
+                //        lblsqy_sqft.InnerText = sdr[6].ToString();
+                //        lbloldcategory.InnerText = sdr[4].ToString();
+                //        lbloldkmccategory.InnerText = sdr[22].ToString();
+                //        lbloldouttanding.InnerText = sdr[17].ToString();
+                //    }
+                //sdr.Dispose();
             }
         }
        

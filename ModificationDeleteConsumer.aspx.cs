@@ -25,9 +25,10 @@ public partial class ModificationDeleteConsumer : System.Web.UI.Page
 
         else
         {
-
+            //Response.Redirect("Login.aspx");
             if (!IsPostBack)
             {
+                //Response.Redirect("Login.aspx");
             }
             conn = new SqlConnection();
             conn.ConnectionString = ConfigurationManager.ConnectionStrings["kmcConnectionString"].ConnectionString;
@@ -58,7 +59,7 @@ public partial class ModificationDeleteConsumer : System.Web.UI.Page
             txtInword.Text+" Dated "+txtinworddate.Text+".";
         p.AdminInsertDeleteConsumer_Impact = ddlimpact.SelectedValue;
 
-        insert.AdminInsertUpdateDeleteConsumer(p);
+       // insert.AdminInsertUpdateDeleteConsumer(p);
         ddlimpact.SelectedIndex = 0;
         txtConsumerNo.Text = null;
         txtInword.Text = null;
@@ -76,18 +77,18 @@ public partial class ModificationDeleteConsumer : System.Web.UI.Page
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "selectInvoice";
                 cmd.Parameters.Add("@consumer_no", SqlDbType.VarChar).Value = txtConsumerNo.Text;
-                sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                    lbloldarea.InnerText = sdr[5].ToString();
-                    lblsqy_sqft.InnerText = sdr[6].ToString();
-                    lbloldcategory.InnerText = sdr[4].ToString();
-                    lbloldkmccategory.InnerText = sdr[22].ToString();
-                    lbloldouttanding.InnerText = sdr[17].ToString();
-                    lblstorey.InnerText = sdr[7].ToString();
+                //sdr = cmd.ExecuteReader();
+                //while (sdr.Read())
+                //{
+                //    lbloldarea.InnerText = sdr[5].ToString();
+                //    lblsqy_sqft.InnerText = sdr[6].ToString();
+                //    lbloldcategory.InnerText = sdr[4].ToString();
+                //    lbloldkmccategory.InnerText = sdr[22].ToString();
+                //    lbloldouttanding.InnerText = sdr[17].ToString();
+                //    lblstorey.InnerText = sdr[7].ToString();
 
-                }
-                sdr.Dispose();
+                //}
+                //sdr.Dispose();
             }
         }
     }

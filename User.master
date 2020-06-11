@@ -159,9 +159,9 @@
 					  <li><a href="billing_search.aspx">Billing History Search</a></li>
 					  <li><a href="payment_history.aspx">Payment History</a></li>
 					  <li><a href="personal_change_search.aspx">Personal Modification</a></li>
-
-
-                        
+                      <li><a href="SearchingSheetBillHistory.aspx">Searching Sheet Search</a></li>
+                      <li><a href="MUCTEmployeeBill.aspx">MUCT Employee Bill Search</a></li>
+                       <li><a href="SuspendedBillList.aspx">Suspended Bill Search</a></li> 
                       
                     </ul>
                   </li>
@@ -206,10 +206,6 @@
                     
                   </li>
 
-                    <li>
-                         <a href="AyshaManzil.aspx"><i class="fa fa-user"></i> Aysha Manzil</a>
-                    
-                  </li>
                     
                 </ul>
               </div>
@@ -218,20 +214,18 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-bug"></i> Modification Cases <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <%--<li><a href="#">Add Storey</a></li>--%>
+                     <li><a href="AddStoreyForm.aspx">Add Storey</a></li>
                         <li><a href="ChangeInSize.aspx">Change In Size</a></li>
                       <li><a href="ModificationChangeOfCategory_DecreaseOfSize.aspx">Change of Category and Size Both</a></li>
                       <li><a href="ModificationChangeOfSize_AddStorey.aspx">Change of Size and Add Storey</a></li>
-                      <li><a href="ModificationDeleteConsumer.aspx">Delete Consumer</a></li>
-                      <li><a href="ModificationDeleteStorey.aspx">Change In Story</a></li>
+                       <li><a href="ModificationDeleteConsumer.aspx">Delete Consumer</a></li>
+                      <li><a href="ModificationDeleteStorey.aspx">Delete Story</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-windows"></i>Refine Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
 					<li><a href="ModifyCheckDigit.aspx">CheckDigit Refine</a></li>
-                      <li><a href="#">Consumer Refine</a></li>
-					  <li><a href="#">Address Refine</a></li>
-					  <li><a href="#">Name Refine</a></li>
+					  <li><a href="RefineNullAddress.aspx">Address Refine</a></li>
 
                     </ul>
                   </li>

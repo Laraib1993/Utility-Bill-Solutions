@@ -26,6 +26,7 @@ public partial class ModificationChangeOfSize_AddStorey : System.Web.UI.Page
 
         else
         {
+            //Response.Redirect("Login.aspx");
 
             if (!IsPostBack)
             {
@@ -50,7 +51,7 @@ public partial class ModificationChangeOfSize_AddStorey : System.Web.UI.Page
         p.AdminInsertChangeSizeAddStorey_NewArea = Convert.ToDecimal(txtNewArea.Text);
         p.AdminInsertChangeSizeAddStorey_AreaForConsumer = Convert.ToDecimal(txtNewArea.Text);
         p.AdminInsertChangeSizeAddStorey_NewStorey = Convert.ToInt32(txtNewStorey.Text);
-        p.AdminInsertChangeSizeAddStorey_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text))*2;
+        p.AdminInsertChangeSizeAddStorey_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text)*2);
         p.AdminInsertChangeSizeAddStorey_NewOutstandingArrears = Convert.ToDecimal(txtNewOutstanding.Text);
         p.AdminInsertChangeSizeAddStorey_Createdby = Convert.ToString(Session["UserID"]);
         p.AdminInsertChangeSizeAddStorey_CreatedbyModifyImpact = Convert.ToString(Session["UserID"]);
@@ -86,7 +87,7 @@ public partial class ModificationChangeOfSize_AddStorey : System.Web.UI.Page
         
 
 
-    insert.AdminInsertUpdateChangeSizeAddStorey(p);
+   // insert.AdminInsertUpdateChangeSizeAddStorey(p);
 
         lbldescription.InnerText = p.AdminInsertChangeSizeAddStorey_DescriptionModifyImpact;
 
@@ -113,30 +114,30 @@ public partial class ModificationChangeOfSize_AddStorey : System.Web.UI.Page
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.CommandText = "selectInvoice";
                 cmd.Parameters.Add("@consumer_no", SqlDbType.VarChar).Value = txtConsumerNo.Text;
-                sdr = cmd.ExecuteReader();
-                while (sdr.Read())
-                {
-                    if (sdr[4].ToString() == "Flat" || sdr[4].ToString() == "Shop")
-                    {
-                        lbloldarea.InnerText = null;
-                        lblsqy_sqft.InnerText = null;
-                        lblstorey.InnerText = null;
-                        lbloldouttanding.InnerText = null;
-                        btnModify.Visible = false;
-                        lblMessage.Text = sdr[4].ToString() + " can not have storey";
+                //sdr = cmd.ExecuteReader();
+                //while (sdr.Read())
+                //{
+                //    if (sdr[4].ToString() == "Flat" || sdr[4].ToString() == "Shop")
+                //    {
+                //        lbloldarea.InnerText = null;
+                //        lblsqy_sqft.InnerText = null;
+                //        lblstorey.InnerText = null;
+                //        lbloldouttanding.InnerText = null;
+                //        btnModify.Visible = false;
+                //        lblMessage.Text = sdr[4].ToString() + " can not have storey";
 
 
-                    }
-                    else
-                    {
-                        lbloldarea.InnerText = sdr[5].ToString();
-                        lblsqy_sqft.InnerText = sdr[6].ToString();
-                        lblstorey.InnerText = sdr[7].ToString();
-                        lbloldouttanding.InnerText = sdr[17].ToString();
-                        lblMessage.Text = "";
-                    }
-                }
-                sdr.Dispose();
+                //    }
+                //    else
+                //    {
+                //        lbloldarea.InnerText = sdr[5].ToString();
+                //        lblsqy_sqft.InnerText = sdr[6].ToString();
+                //        lblstorey.InnerText = sdr[7].ToString();
+                //        lbloldouttanding.InnerText = sdr[17].ToString();
+                //        lblMessage.Text = "";
+                //    }
+                //}
+                //sdr.Dispose();
             }
         }
     }

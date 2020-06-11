@@ -17,7 +17,7 @@ public class DAL
 
         bool var = false;
          
-                         SqlCommand cao_cmd = new SqlCommand();           
+              SqlCommand cao_cmd = new SqlCommand();           
         cao_cmd.CommandText = "select * from userinfo where Username='" + UserID + "' and Password='" + UserPass + "'";
         cao_cmd.Connection = getConnection.getconnection(); 
 		

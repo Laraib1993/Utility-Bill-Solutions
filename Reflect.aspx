@@ -25,34 +25,64 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>Form <small>different form elements</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
                     <br />
                     <form class="form-horizontal form-label-left" novalidate runat="server" >
-                                <div class="form-group">
+                      <div class="form-group">
                        <asp:Label ID="lblConsumerNo" runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Consumer Number" Font-Bold="True"></asp:Label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-
-                         <asp:TextBox ID="txtConsumerNo" runat="server" type="text" class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Consumer Number" OnTextChanged="txtConsumerNo_TextChanged"></asp:TextBox>
+                         <asp:TextBox ID="txtConsumerNo" runat="server" type="text" class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Consumer Number"></asp:TextBox>
                         </div>
                       </div>
-                         <div class="form-group">
+
+                          <div class="form-group">
+                       <asp:Label ID="Label1" runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Payment Amount" Font-Bold="True"></asp:Label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                         <asp:TextBox ID="txtpaymentamount" runat="server" type="number" class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Payment Amount Written On Scroll Given by Consumer"></asp:TextBox>
+                        </div>
+                      </div>
+
+
+                                    <div class="form-group">
+                       <asp:Label runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Branch Code" Font-Bold="True"></asp:Label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+                         <asp:TextBox ID="txtbranchcode" runat="server" type="text" class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Branch Code"></asp:TextBox>
+                        </div>
+                      </div>
+
+            <div class="form-group">
+                       <asp:Label runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Payment Date" Font-Bold="True"></asp:Label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+                         <asp:TextBox ID="txtpaymentdate" runat="server" type="date" class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Payment Date"></asp:TextBox>
+                        </div>
+                      </div>
+
+
+                    <div class="form-group">
+                       <asp:Label runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Bank" Font-Bold="True"></asp:Label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                           <asp:DropDownList ID="ddlbank" runat="server" class="form-control" >
+                               <asp:ListItem Text="Select Bank" Value="0" Selected="True"></asp:ListItem>
+                               <asp:ListItem Text="HABIB BANK" Value="HABIB BANK"></asp:ListItem>
+                               <asp:ListItem Text="NATIONAL BANK" Value="NATIONAL BANK"></asp:ListItem>
+                               <asp:ListItem Text="SINDH BANK" Value="SINDH BANK"></asp:ListItem>
+                               
+                           </asp:DropDownList>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                          <asp:Button ID="btnReset" runat="server" type="reset" class="btn btn-primary" Text="Reset Consumer" OnClick="btnReset_Click" />
+                          <asp:Button ID="btnverifypostingvoucher" runat="server" type="submit" class="btn btn-success" Text="Verify Payment" OnClick="btnverifypostingvoucher_Click" />
+                        </div>
+                      </div>
+
+                  <%--       <div class="form-group">
                        <asp:Label ID="lblInword" runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Inword Number" Font-Bold="True"></asp:Label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
 
@@ -123,27 +153,321 @@
                           <asp:TextBox ID="txtDescription" runat="server" type="text" class="form-control" data-validate-length-range="6" data-validate-words="2" required="required" placeholder="Description"></asp:TextBox>
                       
                         </div>
-                      </div>
+                      </div>--%>
                         
-                        
-                  
                         <asp:Label ID="lbltmpName" runat="server" Visible="False"></asp:Label>
                         <asp:Label ID="lbltmpfname" runat="server" Visible="False"></asp:Label>
                         <asp:Label ID="lbltmpadress" runat="server" Visible="False"></asp:Label>
                         <asp:Label ID="lbltmpcnic" runat="server" Visible="False"></asp:Label>
                         <asp:Label ID="lbltmpmobile" runat="server" Visible="False"></asp:Label>
-
                         <asp:Label ID="lblmessage" runat="server" Font-Bold="True" ForeColor="#006600"></asp:Label>
-
                       <div class="ln_solid"></div>
-                      <div class="form-group">
+
+                           <br />
+                         <asp:GridView ID="gvSearch" 
+        runat="server"
+        Width="100%"
+        BorderColor="gray" 
+        BorderStyle="Outset"
+        BorderWidth="1px" 
+        Font-Size="8.5pt"
+        Font-Names="Sans-Serif"
+        BackColor="Beige" 
+        GridLines="Both"
+        CellPadding="3"
+        CellSpacing="6"
+        AutoGenerateColumns="false" class="table table-striped table-bordered"
+        >
+<HeaderStyle BackColor="#5a738e" />
+<HeaderStyle ForeColor="White" />
+<Columns>
+        <asp:BoundField 
+            DataField="Consumer_no"
+            HeaderText="CONSUMER NO" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="Billing_Period"
+            HeaderText="BILLING Period" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="branch_code"
+            HeaderText="Branch Code" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+	<asp:BoundField 
+            DataField="amount"
+            HeaderText="AMOUNT" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="Payment_Date"
+            HeaderText="PAYMENT DATE" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField> 
+     <asp:BoundField 
+            DataField="Bank_Name"
+            HeaderText="BANK NAME" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField> 
+   </Columns>
+      </asp:GridView>
+                          <br />
+
+                        <asp:Panel ID="pnlpostingvoucher" runat="server" Visible="false">
+                            <div class="form-group">
+                                <div class="form-group">
+                       <asp:Label runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Billing Period" Font-Bold="True"></asp:Label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+
+                         <asp:TextBox ID="txtbillingperiod" runat="server" type="text" class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Billing Period"></asp:TextBox>
+                        </div>
+                      </div>
                         <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-                          <asp:Button ID="btnCancle" runat="server" type="button" class="btn btn-primary" Text="Cancle" />
-                          <asp:Button ID="btnReset" runat="server" type="reset" class="btn btn-primary" Text="Reset" />
-                          <asp:Button ID="btnSubmit" runat="server" type="submit" class="btn btn-success" Text="Submit" OnClick="btnSubmit_Click" />
+                          <asp:Button ID="btnpostingvoucher" runat="server" type="submit" class="btn btn-success" Text="Insert Payment" OnClick="btnpostingvoucher_Click" />
                         </div>
                       </div>
 
+                             <br />
+                         <asp:GridView ID="gvposting" 
+        runat="server"
+        Width="100%"
+        BorderColor="gray" 
+        BorderStyle="Outset"
+        BorderWidth="1px" 
+        Font-Size="8.5pt"
+        Font-Names="Sans-Serif"
+        BackColor="Beige" 
+        GridLines="Both"
+        CellPadding="3"
+        CellSpacing="6"
+        AutoGenerateColumns="false" class="table table-striped table-bordered"
+        >
+<HeaderStyle BackColor="#5a738e" />
+<HeaderStyle ForeColor="White" />
+<Columns>
+        <asp:BoundField 
+            DataField="Consumer_no"
+            HeaderText="CONSUMER NO" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="Billing_Period"
+            HeaderText="BILLING Period" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="branch_code"
+            HeaderText="Branch Code" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+	<asp:BoundField 
+            DataField="amount"
+            HeaderText="AMOUNT" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="Payment_Date"
+            HeaderText="PAYMENT DATE" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField> 
+     <asp:BoundField 
+            DataField="Bank_Name"
+            HeaderText="BANK NAME" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField> 
+   </Columns>
+      </asp:GridView>
+                          <br />
+
+                        </asp:Panel>
+
+
+
+
+
+
+
+
+
+                        <%--rebate area--%>
+                        <asp:Panel runat="server" ID="pnlcheckrebate" Visible="false">
+                       <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12 ">
+                          <asp:Button ID="txtcheckcanclerebate" runat="server" type="reset" class="btn btn btn-danger" Text="Check If Rebate Cancle" OnClick="txtcheckcanclerebate_Click" />
+                          <asp:Button ID="txtcheckrebate" runat="server" type="submit" class="btn btn-success" Text="Rebate Check" OnClick="txtcheckrebate_Click" />
+                        </div>
+                      </div>
+                             <div class="ln_solid"></div>
+                            <asp:Label ID="lblrebateerror" runat="server" Visible="False" ForeColor="#FF0000"></asp:Label>
+                      
+                        <br />
+                         <asp:GridView ID="gvcheckrebate" 
+        runat="server"
+        Width="100%"
+        BorderColor="gray" 
+        BorderStyle="Outset"
+        BorderWidth="1px" 
+        Font-Size="8.5pt"
+        Font-Names="Sans-Serif"
+        BackColor="Beige" 
+        GridLines="Both"
+        CellPadding="3"
+        CellSpacing="6"
+        AutoGenerateColumns="false" class="table table-striped table-bordered"
+        >
+<HeaderStyle BackColor="#5a738e" />
+<HeaderStyle ForeColor="White" />
+<Columns>
+       <asp:BoundField 
+            DataField="inwordno"
+            HeaderText="INWORD NO" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+        <asp:BoundField 
+            DataField="consumer_no"
+            HeaderText="CONSUMER NO" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="pervious_outstanding"
+            HeaderText="OLD OUTSTANDING" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="after_rebate_outstanding"
+            HeaderText="AFTER REBATE" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+	<asp:BoundField 
+            DataField="difference"
+            HeaderText="DIFFERENCE" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="cancledby"
+            HeaderText="CANCLED BY" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField> 
+     <asp:BoundField 
+            DataField="cancledon"
+            HeaderText="CANCLED ON" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField> 
+   </Columns>
+      </asp:GridView>
+                          <br />
+
+                            <br />
+                         <asp:GridView ID="gvcheckrebate2" 
+        runat="server"
+        Width="100%"
+        BorderColor="gray" 
+        BorderStyle="Outset"
+        BorderWidth="1px" 
+        Font-Size="8.5pt"
+        Font-Names="Sans-Serif"
+        BackColor="Beige" 
+        GridLines="Both"
+        CellPadding="3"
+        CellSpacing="6"
+        AutoGenerateColumns="false" class="table table-striped table-bordered"
+        >
+<HeaderStyle BackColor="#5a738e" />
+<HeaderStyle ForeColor="White" />
+<Columns>
+       
+        <asp:BoundField 
+            DataField="consumer_no"
+            HeaderText="CONSUMER NO" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+        <asp:BoundField 
+            DataField="outstanding_Arrears"
+            HeaderText="OLD OUTSTANDING" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="after_rebate"
+            HeaderText="AFTER REBATE" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField>
+
+        <asp:BoundField 
+            DataField="createdby"
+            HeaderText="CANCLED BY" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField> 
+     <asp:BoundField 
+            DataField="createdon"
+            HeaderText="CANCLED ON" ItemStyle-Wrap="False" HeaderStyle-Wrap="False">
+            <HeaderStyle HorizontalAlign="left"></HeaderStyle> 
+            <ItemStyle HorizontalAlign="left" Font-Bold="True"></ItemStyle>
+        </asp:BoundField> 
+   </Columns>
+      </asp:GridView>
+                          <br />
+                        </asp:Panel>
+
+
+                        
+
+
+
+
+
+
+                        
+                        
+                        
+                        <div class="ln_solid"></div>
+                        <div class="form-group" runat="server" id="pnlreflect" visible="false">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          
+                          <asp:Button ID="btnsubmit" runat="server" type="submit" class="btn btn-danger" Text="If Rebate Amount Is Paid Then Click Here" OnClick="btnsubmit_Click" />
+                        </div>
+                      </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group" runat="server" id="pnlreflect2" visible="false">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                         
+                          <asp:Button ID="btncancle" runat="server" type="reset" class="btn btn-success" Text="If Rebate Amount Is Not Paid Then Click Here" OnClick="btncancle_Click" />
+                        </div>
+                      </div>
                     </form>
                   </div>
                 </div>
@@ -152,22 +476,8 @@
                 <div class="col-md-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Summary <small>different form elements</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                    <h2>Payment Reflect<small>form Bank Scroll</small></h2>
+                   
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -245,78 +555,9 @@
 
               </div>
               
-                 <div class="col-md-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>To Do <small>List</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                      <div class="dashboard-widget-content">
-                        <div class="col-md-12 hidden-small">
-                          <h2 class="line_30">Instruction You May Follow</h2>
-
-                          <table class="countries_list">
-                            <tbody>
-                                <tr>
-                                <td>Payment Reflect behalf of bank scroll Inword # 40968 Dated XX-XX-XXXX as per Director (MUCT) signature</td>
-                                <td class="fs15 fw700 text-right">
-                                   
-                                    </td>
-                              </tr>
-                                <tr>
-                                     <td>Change Address as inword # XXXXX Dated XX-XX-XXXX as Director (MUCT) instruction</td>
-                                
-                                <td class="fs15 fw700 text-right">
-                                   
-                                    </td>
-                              </tr>
-                                 <tr>
-                                     <td>Change name and Address as inword # XXXXX Dated XX-XX-XXXX as Director (MUCT) instruction</td>
-                                
-                                <td class="fs15 fw700 text-right">
-                                   
-                                    </td>
-                              </tr>
-                              
-                            </tbody>
-                          </table>
-                        </div>
-                      
-                      </div>
-                    </div>
-                </div>
-
-              
-
-                
-
-
-              </div>
+                 
 
             </div>
-
-            
-
-           
-
-
-            
           </div>
 </asp:Content>
 

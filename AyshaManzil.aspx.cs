@@ -17,7 +17,7 @@ public partial class AyshaManzil : System.Web.UI.Page
     protected void btnsubmit_Click(object sender, EventArgs e)
     {
         P.AdminBulkInsertAyshaManzil = filer_input1;
-        bill.AdminBulkUploadAyshaManzilRebate(P);
+      //  bill.AdminBulkUploadAyshaManzilRebate(P);
         bill.AdminBulkUploadAyshaManzil(P);
     }
 }

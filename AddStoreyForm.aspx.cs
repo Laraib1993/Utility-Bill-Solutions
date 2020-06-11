@@ -35,12 +35,12 @@ public partial class AddStoreyForm : System.Web.UI.Page
                 //ddlZone.DataBind();
                 //ddlZone.Items.Insert(0, "Select Zone");
 
-                ////ddlTown.DataSource = downs.fetchingcarmodeldropdown();
-                ////ddTown.DataBind();
-                ////ddlType.DataSource = downs.fetchingcartypedropdown();
-                ////ddlType.DataBind();
-                ////ddluserid.DataSource = downs.fetchinguserinfodropdown();
-                ////ddluserid.DataBind();
+                //ddlTown.DataSource = downs.fetchingcarmodeldropdown();
+                //ddTown.DataBind();
+                //ddlType.DataSource = downs.fetchingcartypedropdown();
+                //ddlType.DataBind();
+                //ddluserid.DataSource = downs.fetchinguserinfodropdown();
+                //ddluserid.DataBind();
                 //txtTariff.Enabled = false;
                 //ddlTown.Enabled = false;
                 //ddlBlock.Enabled = false;
@@ -48,7 +48,7 @@ public partial class AddStoreyForm : System.Web.UI.Page
                 //txtStorey.Enabled = false;
                 //txtSqyard.Enabled = false;
                 //ddlpropertyType.Enabled = false;
-
+                //Response.Redirect("Login.aspx");
 
             }
             conn = new SqlConnection();
@@ -69,7 +69,7 @@ public partial class AddStoreyForm : System.Web.UI.Page
         p.AdminInsertAddStorey_ModificationStatus = "Add Storey";
         p.AdminInsertAddStorey_ModificationStatusModifyImpact = "Add Storey";
         p.AdminInsertAddStorey_NewStorey = Convert.ToInt32(txtNewStorey.Text);
-        p.AdminInsertAddStorey_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text))*2;
+        p.AdminInsertAddStorey_NewCurrentCharge = (Convert.ToDecimal(txtNewCurrent.Text)*2);
         p.AdminInsertAddStorey_NewOutstandingArrears = Convert.ToDecimal(txtNewOutstanding.Text);
         p.AdminInsertAddStorey_Createdby = Convert.ToString(Session["UserID"]);
         p.AdminInsertAddStorey_CreatedbyModifyimpact = Convert.ToString(Session["UserID"]);
@@ -78,7 +78,7 @@ public partial class AddStoreyForm : System.Web.UI.Page
         p.AdminInsertAddStorey_Difference = Convert.ToDecimal(txtDifference.Text);
         p.AdminInsertAddStorey_Impact = txtImpact.SelectedValue.ToString();
 
-        insert.AdminInsertUpdateAddStorey(p);
+        //insert.AdminInsertUpdateAddStorey(p);
         txtConsumerNo.Text = "";
         txtDescription.Text = "";
         txtDifference.Text = "";

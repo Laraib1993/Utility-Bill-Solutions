@@ -48,7 +48,7 @@ Partial Class completebill
             rpt.Load(Server.MapPath("~/reports/duplicatebill.rpt"))
             Dim conInfo As New ConnectionInfo
             With conInfo
-                .ServerName = "WIN-7V1OQFPKUAJ"
+                .ServerName = "WIN-H4F4JGGN50A"
                 .DatabaseName = "kmc"
                 .UserID = "sa"
                 .Password = "Spserver@5555"

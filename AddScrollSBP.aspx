@@ -2,6 +2,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <title>Sccroll Insert</title>
+
+    <script type='text/javascript'>
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+</script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="">
@@ -52,7 +64,7 @@
                        <asp:Label runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Amount" Font-Bold="True"></asp:Label>
                         <div class="col-md-7 col-sm-7 col-xs-12">
 
-                         <asp:TextBox ID="txtamount" runat="server" type="number" class="form-control" MaxLength="5" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Amount"></asp:TextBox>
+                         <asp:TextBox ID="txtamount" runat="server" type="text" class="form-control" maxlength="5" onkeypress="return isNumber(event)" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Amount"></asp:TextBox>
                         </div>
                       </div>
 
@@ -61,7 +73,7 @@
                        <asp:Label runat="server" class="control-label col-md-3 col-sm-3 col-xs-12" Text="Branch Code" Font-Bold="True"></asp:Label>
                         <div class="col-md-7 col-sm-7 col-xs-12">
 
-                         <asp:TextBox ID="txtbranchcode" runat="server" type="text" class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Branch Code"></asp:TextBox>
+                         <asp:TextBox ID="txtbranchcode" runat="server" type="text" class="form-control" maxlength="4" onkeypress="return isNumber(event)" data-validate-length-range="6" data-validate-words="2" name="name" required="required" placeholder="Branch Code"></asp:TextBox>
                         </div>
                       </div>
 
