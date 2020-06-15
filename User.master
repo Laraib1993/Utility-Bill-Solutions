@@ -214,10 +214,12 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-bug"></i> Modification Cases <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                     <li><a href="AddStoreyForm.aspx">Add Storey</a></li>
-                        <li><a href="ChangeInSize.aspx">Change In Size</a></li>
-                      <li><a href="ModificationChangeOfCategory_DecreaseOfSize.aspx">Change of Category and Size Both</a></li>
-                      <li><a href="ModificationChangeOfSize_AddStorey.aspx">Change of Size and Add Storey</a></li>
+                     <li><a href="AddStoreyForm.aspx">Change of Storey</a></li>
+                        <li><a href="ChangeInSize.aspx">Change of Size</a></li>
+                        <li><a href="ModificationChangeInCategory.aspx">Change of Category</a></li>
+                        <li><a href="ModificationChangeinCategory_Storey.aspx">Change of Category & Storey</a></li>
+                      <li><a href="ModificationChangeOfCategory_DecreaseOfSize.aspx">Change of Category & Size</a></li>
+                      <li><a href="ModificationChangeOfSize_AddStorey.aspx">Change of Size & Storey</a></li>
                        <li><a href="ModificationDeleteConsumer.aspx">Delete Consumer</a></li>
                       <li><a href="ModificationDeleteStorey.aspx">Delete Story</a></li>
                     </ul>

@@ -1,0 +1,162 @@
+alter procedure sp_AdminInsertUpdate_ModificationForm_ChangeInCategory
+@inword varchar(25),
+@ConsumerNo varchar(50),
+@NewCategory varchar(50),
+@kmcCategory varchar(50),
+@NewArea decimal(18,2),
+@NewCurrentCharges decimal(18,2),
+@NewOutstandingArrears decimal(18,2),
+@createdby varchar(50),
+@description varchar(max),
+@impact varchar(50),
+@difference decimal(18,2),
+@differnceperc decimal(18,2),
+@sq_ft decimal(18,2),
+@sq_yd decimal(18,2),
+@Sqft_Sqyd varchar(50)
+as
+insert into modify_invoice  
+(inword, modification_status, consumer_no, previous_category, previous_area, previous_Storey, previous_current_Charges, 
+previous_outstanding_Arrears, new_category, new_area, new_storey, new_current_Charge, new_outstanding_Arrears, zone, town, 
+billing_month, consumer_surcharge, createdby, createdon, description, status)
+SELECT
+@inword, 'Change of Category', consumer_no, category, area, Storey, current_Charges, outstanding_Arrears, @NewCategory,
+@NewArea, Storey, @NewCurrentCharges/2, @NewOutstandingArrears, zone, town, billing_month, ((@NewCurrentCharges/2) *0.10), @createdby, GETDATE(),
+@description, 1         
+FROM         invoice
+WHERE     (consumer_no = @ConsumerNo)
+
+
+
+
+INSERT INTO modify_impact (
+inword, modification_status, consumer_no, consumer_name, previous_arrears, after_correction, difference, difference_percentage, 
+impact, Description, createdon, createdby) 
+select
+@inword, 'Change of Category', consumer_no, consumer_name, outstanding_Arrears, @NewOutstandingArrears, 
+@difference, @differnceperc, @impact, @description, GETDATE(), @createdby
+from invoice
+WHERE     (consumer_no = @ConsumerNo)
+
+
+
+
+update invoice set
+area = @NewArea,
+category = @NewCategory,
+kmc_category = @kmccategory,
+sqft_sqyd = @sqft_sqyd, 
+current_Charges = @NewCurrentCharges,
+outstanding_Arrears = @NewOutstandingArrears,
+current_arrears = @NewOutstandingArrears *0.05,
+within_duedate_amount = (@NewOutstandingArrears * 0.05) + @NewCurrentCharges + 8.00,
+consumer_surcharge = @NewCurrentCharges *0.10,
+after_duedate_amount = (@NewOutstandingArrears *0.05) + @NewCurrentCharges + 8.00 + (@NewCurrentCharges *0.10),
+barcode = '*'+ consumer_no + convert(varchar,round((@NewOutstandingArrears *0.05) + @NewCurrentCharges + 8.00,0)) +'*'
+WHERE     (consumer_no = @ConsumerNo)
+
+
+
+update arrears set
+outstanding_arrears = @NewOutstandingArrears
+WHERE     (consumer_no = @ConsumerNo)
+
+
+update tariff set
+tariff = @NewCurrentCharges/2
+WHERE     (consumer_no = @ConsumerNo)
+
+
+update consumer set
+area = @NewArea,
+category = @NewCategory,
+kmc_category = @kmccategory,
+sq_ft= @sq_ft,
+sq_yd = @sq_yd,
+Sqft_Sqyd=@sqft_sqyd
+WHERE     (consumer_no = @ConsumerNo)
+
+-----------------------------------------------------------------------------------------------
+
+alter procedure sp_AdminInsertUpdate_ModificationForm_ChangeOfCategoryAndStorey
+@inword varchar(25),
+@category varchar(50),
+@kmccategory varchar(50),
+@description varchar(max),
+@Storey int,
+@current_Charge decimal(18,2),
+@outstanding_Arrears decimal(18,2),
+@difference decimal(18,2),
+@difference_percentage decimal(18,2),
+@createdby varchar(50),
+@impact varchar(50),
+@consumer_no varchar(50),
+@sq_ft decimal(18,2),
+@sq_yd decimal(18,2),
+@sqft_sqyd varchar(50),
+@area decimal(18,2)
+as
+insert into modify_invoice  
+(inword, modification_status, consumer_no, previous_category, previous_area, previous_Storey, previous_current_Charges, 
+previous_outstanding_Arrears, new_category, new_area, new_storey, new_current_Charge, new_outstanding_Arrears, zone, town, 
+billing_month, consumer_surcharge, createdby, createdon, description, status)
+SELECT
+@inword, 'Change of Category & Storey', consumer_no, category, area, Storey, current_Charges, outstanding_Arrears, @category,
+@area, @Storey, @current_Charge/2, @outstanding_Arrears, zone, town, billing_month, ((@current_Charge/2) *0.10), @createdby, GETDATE(),
+@description, 1         
+FROM         invoice
+WHERE     (consumer_no = @consumer_no)
+
+
+
+
+INSERT INTO modify_impact (
+inword, modification_status, consumer_no, consumer_name, previous_arrears, after_correction, difference, difference_percentage, 
+impact, Description, createdon, createdby) 
+select
+@inword, 'Change of Category & Storey', consumer_no, consumer_name, outstanding_Arrears, @outstanding_Arrears, 
+@difference, @difference_percentage, @impact, @description, GETDATE(), @createdby
+from invoice
+WHERE     (consumer_no = @consumer_no)
+
+
+
+
+update invoice set
+Storey = @Storey,
+area = @area,
+category = @category,
+kmc_category = @kmccategory,
+sqft_sqyd = @sqft_sqyd, 
+current_Charges = @current_Charge,
+outstanding_Arrears = @outstanding_Arrears,
+current_arrears = @outstanding_Arrears *0.05,
+within_duedate_amount = (@outstanding_Arrears * 0.05) + @current_Charge + 8.00,
+consumer_surcharge = @current_Charge *0.10,
+after_duedate_amount = (@outstanding_Arrears *0.05) + @current_Charge + 8.00 + (@current_Charge *0.10),
+barcode = '*'+ consumer_no + convert(varchar,round((@outstanding_Arrears *0.05) + @current_Charge + 8.00,0)) +'*'
+WHERE     (consumer_no = @consumer_no)
+
+
+
+update arrears set
+outstanding_arrears = @outstanding_Arrears
+WHERE     (consumer_no = @consumer_no)
+
+
+update tariff set
+tariff = @current_Charge/2
+WHERE     (consumer_no = @consumer_no)
+
+
+update consumer set
+area = @area,
+category = @category,
+kmc_category = @kmccategory,
+sq_ft= @sq_ft,
+sq_yd = @sq_yd,
+Sqft_Sqyd=@sqft_sqyd,
+storey = @Storey
+WHERE     (consumer_no = @consumer_no)
+
+

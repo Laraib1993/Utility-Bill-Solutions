@@ -35,7 +35,7 @@ public class properties
         }
     }
 
-       //Delete consumer//
+    //Delete consumer//
     public string AdminInsertDeleteConsumer_Inwordno { get; set; }
     public string AdminInsertDeleteConsumer_InwordnoForModifyImpact { get; set; }
     public string AdminInsertDeleteConsumer_Consumerno { get; set; }
@@ -69,6 +69,29 @@ public class properties
     public decimal AdminInsertAddStorey_Difference { get; set; }
     public string AdminInsertAddStorey_Impact { get; set; }
     //add storey//
+
+
+
+
+    // change in category //
+    public string AdminInsertModificationForm_ChangeOfCategory_Inword { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategory_consumerno { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategory_category { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategory_kmccategory { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategory_area { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategory_currentcharges { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategory_outstandingarrears { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategory_createdby { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategory_discription { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategory_impact { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategory_difference { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategory_differencepercentage { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategory_sqft { get; set;}
+    public decimal AdminInsertModificationForm_ChangeOfCategory_sqyd { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategory_sqft_sqyd { get; set; }
+    // change in category //
+
+
 
     //change in size//
     public string AdminInsertChangeInSize_InwordNo { get; set; }
@@ -110,6 +133,38 @@ public class properties
     public decimal AdminInsertDeleteStorey_Difference { get; set; }
     public string AdminInsertDeleteStorey_Impact { get; set; }
     //delete storey//
+
+
+
+
+
+    // change of category & decrease of size//
+
+    public string AdminInsertModificationForm_ChangeOfCategoryAndSize_Inword { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategoryAndSize_category { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategoryAndSize_kmccategory { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategoryAndSize_description { get; set; }
+    public int AdminInsertModificationForm_ChangeOfCategoryAndSize_storey { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategoryAndSize_currentcharges { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategoryAndSize_outstandingarrears { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategoryAndSize_difference { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategoryAndSize_diffpercentage { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategoryAndSize_createdby { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategoryAndSize_impact { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategoryAndSize_consumerno { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategoryAndSize_sqft { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategoryAndSize_sqyd { get; set; }
+    public string AdminInsertModificationForm_ChangeOfCategoryAndSize_sqft_sqyd { get; set; }
+    public decimal AdminInsertModificationForm_ChangeOfCategoryAndSize_area { get; set; }
+
+    // change of category & decrease of size//
+
+
+
+
+
+
+
 
     // change of category & decrease of size//
 

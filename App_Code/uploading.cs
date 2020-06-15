@@ -325,6 +325,62 @@ public class uploading
     }
 
 
+
+
+    public void AdminInsertUpdateChangeCategory(properties P)
+    {
+        using (cmdd = new SqlCommand())
+        {
+            cmdd.CommandType = CommandType.StoredProcedure;
+            cmdd.CommandText = "sp_AdminInsertUpdate_ModificationForm_ChangeInCategory";
+            cmdd.Connection = getConnection.getconnection();
+            cmdd.Parameters.AddWithValue("@inword", P.AdminInsertModificationForm_ChangeOfCategory_Inword);
+            cmdd.Parameters.AddWithValue("@ConsumerNo", P.AdminInsertModificationForm_ChangeOfCategory_consumerno);
+            cmdd.Parameters.AddWithValue("@NewCategory", P.AdminInsertModificationForm_ChangeOfCategory_category);
+            cmdd.Parameters.AddWithValue("@kmcCategory", P.AdminInsertModificationForm_ChangeOfCategory_kmccategory);
+            cmdd.Parameters.AddWithValue("@NewArea", P.AdminInsertModificationForm_ChangeOfCategory_area);
+            cmdd.Parameters.AddWithValue("@NewCurrentCharges", P.AdminInsertModificationForm_ChangeOfCategory_currentcharges);
+            cmdd.Parameters.AddWithValue("@NewOutstandingArrears", P.AdminInsertModificationForm_ChangeOfCategory_outstandingarrears);
+            cmdd.Parameters.AddWithValue("@createdby", P.AdminInsertModificationForm_ChangeOfCategory_createdby);
+            cmdd.Parameters.AddWithValue("@description", P.AdminInsertModificationForm_ChangeOfCategory_discription);
+            cmdd.Parameters.AddWithValue("@impact", P.AdminInsertModificationForm_ChangeOfCategory_impact);
+            cmdd.Parameters.AddWithValue("@difference", P.AdminInsertModificationForm_ChangeOfCategory_difference);
+            cmdd.Parameters.AddWithValue("@differnceperc", P.AdminInsertModificationForm_ChangeOfCategory_differencepercentage);
+            cmdd.Parameters.AddWithValue("@sq_ft", P.AdminInsertModificationForm_ChangeOfCategory_sqft);
+            cmdd.Parameters.AddWithValue("@sq_yd", P.AdminInsertModificationForm_ChangeOfCategory_sqyd);
+            cmdd.Parameters.AddWithValue("@Sqft_Sqyd", P.AdminInsertModificationForm_ChangeOfCategory_sqft_sqyd);
+            cmdd.ExecuteNonQuery();
+        }
+    }
+
+
+
+    public void AdminInsertUpdateChangeCategoryAddStorey(properties P)
+    {
+        using (cmdd = new SqlCommand())
+        {
+            cmdd.CommandType = CommandType.StoredProcedure;
+            cmdd.CommandText = "sp_AdminInsertUpdate_ModificationForm_ChangeOfCategoryAndStorey";
+            cmdd.Connection = getConnection.getconnection();
+            cmdd.Parameters.AddWithValue("@inword", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_Inword);
+            cmdd.Parameters.AddWithValue("@category", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_category);
+            cmdd.Parameters.AddWithValue("@kmccategory", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_kmccategory);
+            cmdd.Parameters.AddWithValue("@description", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_description);
+            cmdd.Parameters.AddWithValue("@Storey", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_storey);
+            cmdd.Parameters.AddWithValue("@current_Charge", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_currentcharges);
+            cmdd.Parameters.AddWithValue("@outstanding_Arrears", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_outstandingarrears);
+            cmdd.Parameters.AddWithValue("@difference", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_difference);
+            cmdd.Parameters.AddWithValue("@difference_percentage", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_diffpercentage);
+            cmdd.Parameters.AddWithValue("@createdby", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_createdby);
+            cmdd.Parameters.AddWithValue("@impact", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_impact);
+            cmdd.Parameters.AddWithValue("@consumer_no", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_consumerno);
+            cmdd.Parameters.AddWithValue("@sq_ft", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_sqft);
+            cmdd.Parameters.AddWithValue("@sq_yd", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_sqyd);
+            cmdd.Parameters.AddWithValue("@sqft_sqyd", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_sqft_sqyd);
+            cmdd.Parameters.AddWithValue("@area", P.AdminInsertModificationForm_ChangeOfCategoryAndSize_area);
+            cmdd.ExecuteNonQuery();
+        }
+    }
     public void AdminInsertUpdateChangeCategoryDecreaseSize(properties P)
     {
         using (cmdd = new SqlCommand())
